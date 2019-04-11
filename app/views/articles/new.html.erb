@@ -1,0 +1,13 @@
+<h1>Create an article</h1>
+
+<form action="<%= articles_path %>" method="POST">
+  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+  <label>Title</label>
+  <input type="text" name="article[:title]" />
+
+  <label>Description</label>
+  <input type="text" name="article[:description]" />
+
+  <input type="submit" value="Create" />
+</form>
