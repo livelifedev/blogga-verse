@@ -1,23 +1,16 @@
 <h1>Edit existing article</h1>
 
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from getting created</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'errors' %>
 
 <form action="<%= article_path(params[:id]) %>" method="POST">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
   <input type="hidden" name="_method" value="put" />
 
   <label>Title</label>
-  <input type="text" name="article[title]" />
+  <input type="text" name="article[title]" value="<%= @article[:title] %>" />
 
   <label>Description</label>
-  <input type="text" name="article[description]" />
+  <input type="text" name="article[description]" value="<%= @article[:description] %>" />
 
   <input type="submit" value="Update" />
 </form>

@@ -1,13 +1,6 @@
 <h1>Create an article</h1>
 
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from getting created</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'errors' %>
 
 <form action="<%= articles_path %>" method="POST">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
