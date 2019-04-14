@@ -1,6 +1,6 @@
 <h1>Edit existing article</h1>
 
-<%= render 'errors' %>
+<%= render 'shared/errors', obj: @article %>
 
 <form action="<%= article_path(params[:id]) %>" method="POST">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
