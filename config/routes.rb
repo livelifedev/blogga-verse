@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   put "users/:id", to: "users#update"
   patch "users/:id", to: "users#update"
   delete "users/:id", to: "users#destroy"
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
