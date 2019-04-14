@@ -1,0 +1,23 @@
+<h1>Edit your account</h1>
+
+<%= render 'shared/errors', obj: @user %>
+
+<form action="<%= user_path(params[:id]) %>" method="POST">
+  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+  <input type="hidden" name="_method" value="put" />
+
+  <label>Username</label>
+  <input type="text" name="user[username]" value="<%= @user[:username] %>" />
+
+  <label>Email</label>
+  <input type="email" name="user[email]" value="<%= @user[:email] %>" />
+
+  <label>Password</label>
+  <input type="password" name="user[password]" />
+
+  <input type="submit" value="Update" />
+</form>
+
+<p>
+  [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+</p>
